@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Form</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>com.form.register/RegisterUser.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  <servlet-name>registerxml </servlet-name>
+  <servlet-class>com.form.controller.Controller</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>registerxml</servlet-name>
+   <url-pattern>/controller</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+  <servlet-name>registeruser </servlet-name>
+ <jsp-file>/com.form.register/RegisterUser.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>registeruser </servlet-name>
+   <url-pattern>/home</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+   <servlet-name>login</servlet-name>
+  <jsp-file>  /com.form.login/UserLogin.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>login</servlet-name>
+   <url-pattern>/login</url-pattern>
+   </servlet-mapping>
+   
+   
+   
+    <servlet>
+   <servlet-name>logininfo</servlet-name>
+  <jsp-file>  /com.form.login/LoginInfo.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>logininfo</servlet-name>
+   <url-pattern>/logininfo</url-pattern>
+   </servlet-mapping>
+   
+   
+   
+      <servlet>
+   <servlet-name>loginscccess</servlet-name>
+   <jsp-file>/com.form.login/UserLoginSuccess.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>loginscccess</servlet-name>
+   <url-pattern>/logged</url-pattern>
+   </servlet-mapping>
+   
+   
+      <servlet>
+   <servlet-name>loginfailed</servlet-name>
+   <jsp-file>/com.form.login/UserLoginFailed.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>loginfailed</servlet-name>
+   <url-pattern>/loginfailed</url-pattern>
+   </servlet-mapping>
+   
+   
+   
+     <servlet>
+   <servlet-name>registerfailed</servlet-name>
+   <jsp-file>/com.form.register/RegisterUserFailed.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>registerfailed</servlet-name>
+   <url-pattern>/registerfailed</url-pattern>
+   </servlet-mapping>
+   
+   
+   
+     <servlet>
+   <servlet-name>changepassword</servlet-name>
+   <jsp-file>/com.form.login/ChangeUserPassword.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>changepassword</servlet-name>
+   <url-pattern>/changepassword</url-pattern>
+   </servlet-mapping>
+   
+   
+     <servlet>
+   <servlet-name>changepasswordsuccess</servlet-name>
+   <jsp-file>/com.form.login/ChangeUserPasswordSuccess.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>changepasswordsuccess</servlet-name>
+   <url-pattern>/passwordchanged</url-pattern>
+   </servlet-mapping>
+   
+   
+   
+     <servlet>
+   <servlet-name>changepasswordfailed</servlet-name>
+   <jsp-file>/com.form.login/ChangeUserPasswordFailed.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>changepasswordfailed</servlet-name>
+   <url-pattern>/passwordnotchanged</url-pattern>
+   </servlet-mapping>
+   
+   
+   
+      <servlet>
+   <servlet-name>admin</servlet-name>
+   <jsp-file>/com.form.admin/AdminPage.jsp</jsp-file>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>admin</servlet-name>
+   <url-pattern>/admin</url-pattern>
+   </servlet-mapping>
+   
+   
+      
+	<error-page>
+		<error-code>404</error-code>
+		<location>/com.form.errorpages/Error404.jsp</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>com.mongodb.MongoTimeoutException</exception-type>
+		<location>/com.form.errorpages/MongoTimeout.jsp</location>
+	</error-page>
+
+   
+   
+  
+  
+</web-app>
