@@ -61,4 +61,19 @@ public interface UserDAO {
 	 */
 	Boolean changePassword(String oldPassword, String newPassword);
 	
+	/*
+	 * METHOD: 4
+	 * 
+	 * Get User Object from parameter and
+	 * Update it with details of that user
+	 * 
+	 * 
+	 * @param User Object
+	 * @return Boolean
+	 * 	
+	 *  
+	 * 
+	 */
+	Boolean updateUser(User user);
+	
 }
