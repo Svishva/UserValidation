@@ -23,10 +23,11 @@ import com.mongodb.client.MongoCollection;
  * DAO implementation for UserDAO.java
  * Target Database : MongoDB
  * 
- * No of Methods: 3
+ * No of Methods: 4
  * 			createUser 
  * 			loginUser
  * 			changePassword
+ * 			updateUser
  * 
  * @author visweshwaran
  *
@@ -51,6 +52,7 @@ public class UserDAOImpMongoDB implements UserDAO, Constants {
 	 *  
 	 * @condition User Email and UserPhone 
 	 *            must be unique.
+	 *            
 	 * @overrides UserDAO method createUser(User user)
 	 * @param User
 	 * 
@@ -254,6 +256,42 @@ public class UserDAOImpMongoDB implements UserDAO, Constants {
 			e.printStackTrace();
 
 		}
+		return flag;
+	}
+
+
+	/*
+	 * METHOD: 4
+	 * 
+	 * Get Gender and Education details from parameter 
+	 * Update it with details when user logged in
+	 * 
+	 * 
+	 * @param User Object
+	 * @return Boolean
+	 * 	true => Updated
+	 *  	false => not updated
+	 * 
+	 * @see com.form.dao.UserDAO#updateUser(com.form.model.beans.User)
+	 */
+	public Boolean updateUser(User user) {
+		
+		flag =false;
+		try{
+		
+		if(user.getUserGender() != null && user.getUserEducation() != null){
+			
+		loggedUser.setUserGender(user.getUserGender());
+		loggedUser.setUserEducation(user.getUserEducation());
+		collection.replaceOne(eq("UserID", loggedUser.getUserID()), Document.parse( gson.toJson(loggedUser)));
+		flag = true;
+		
+		}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		return flag;
 	}
 
